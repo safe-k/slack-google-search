@@ -35,7 +35,10 @@ app.post('/', (req, res) => {
     res.json(message);
   })
   .catch((err) => {
-    res.sendStatus(err);
+      console.log(err);
+      if (err.response) {
+          res.sendStatus(err.response.status);
+      }
   });
 });
 
