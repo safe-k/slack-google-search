@@ -1,0 +1,14 @@
+{
+  "name": "slack-google-search",
+  "version": "1.0.0",
+  "description": "A slash command that returns the top 5 Google search results",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.13.4",
+    "google": "^1.4.0"
+  },
+  "engines": {
+    "node": "11.x"
+  }
+}
