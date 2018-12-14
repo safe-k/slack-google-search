@@ -21,7 +21,7 @@ class Bot {
                 });
 
                 // Return top five links
-                return resolve(links.slice(0, 6));
+                return resolve(links.slice(0, 5));
             });
         });
     }
