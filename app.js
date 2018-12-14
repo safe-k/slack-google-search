@@ -41,6 +41,7 @@ app.post('/', (req, res) => {
 });
 
 function delayedResponse(req, res) {
+    // Set default message
     let message = {
         response_type: 'ephemeral',
         text: 'Sorry, that didn\'t work. Please try again.'
@@ -69,13 +70,14 @@ function delayedResponse(req, res) {
         console.error(err);
         if (err.response) {
             res.sendStatus(err.response.status);
+        } else {
+            res.sendStatus(500);
         }
     }).finally(() => {
-        console.log('Message: ' + JSON.stringify(message));
+        console.log('Delayed response message: ' + JSON.stringify(message));
 
         request.post(req.body.response_url, { json: message }, (err, res, body) => {
-            console.log('statusCode: ' + res.statusCode);
-            console.log(body);
+            console.log('Delayed response status code: ' + res.statusCode);
             if (err) {
                 console.error(err);
             }

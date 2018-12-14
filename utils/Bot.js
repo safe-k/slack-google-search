@@ -8,16 +8,14 @@ class Bot {
   }
 
   searchGoogle(query) {
-    let promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.google(query, (err, next, links) => {
-        if (err) return reject(err);
+          if (err) return reject(err);
 
-        let topFiveLinks = links.slice(0, 6);
-        resolve(topFiveLinks);
+          let topFiveLinks = links.slice(0, 6);
+          resolve(topFiveLinks);
       });
     });
-
-    return promise;
   }
 }
 
