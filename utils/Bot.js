@@ -12,8 +12,16 @@ class Bot {
             this.google(query, (err, next, links) => {
                 if (err) return reject(err);
 
-                let topFiveLinks = links.slice(0, 6);
-                return resolve(topFiveLinks);
+                // Exclude dead links and links to Images, News, and Books
+                links = links.filter(link => {
+                    let deadLink = (/^Images/.test(link.title) || /^News/.test(link.title) || /^Books/.test(link.title));
+                    let invalidResult = (!link.description && !link.href);
+
+                    return (!deadLink && !invalidResult);
+                });
+
+                // Return top five links
+                return resolve(links.slice(0, 5));
             });
         });
     }

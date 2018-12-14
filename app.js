@@ -56,16 +56,11 @@ function delayedResponse(searchQuery, responseUrl) {
     bot.searchGoogle(searchQuery).then((results) => {
         let links = [];
         for (let result of results) {
-            let link = {
+            links.push({
                 title: result.title,
                 title_link: result.href,
                 text: result.description
-            };
-
-            // Exclude dead links to Images, News, and Books
-            if (!/^Images/.test(result.title) && !/^News/.test(result.title) && !/^Books/.test(result.title)) {
-                links.push(link);
-            }
+            });
         }
 
         message = {
