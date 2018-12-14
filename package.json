@@ -6,7 +6,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.13.4",
-    "google": "^1.4.0"
+    "google": "^1.4.0",
+    "request": "^2.88.0"
   },
   "engines": {
     "node": "11.x"
