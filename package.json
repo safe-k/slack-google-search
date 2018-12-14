@@ -7,6 +7,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.13.4",
     "google": "^1.4.0",
+    "healthcheck-ping": "^2.0.1",
     "request": "^2.88.0"
   },
   "engines": {
