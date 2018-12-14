@@ -24,6 +24,13 @@ app.post('/', (req, res) => {
         });
     }
 
+    if (req.body.text === 'help')  {
+        return res.send({
+            response_type: 'ephemeral',
+            text: 'Type the command followed by some text to search for (e.g. `/google penguins`).'
+        });
+    }
+
     // Acknowledge request before responding (this is to prevent Slack's 3s timeout)
     res.send({
         response_type: 'ephemeral',
